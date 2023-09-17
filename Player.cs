@@ -37,7 +37,11 @@ public class Player : MonoBehaviour // Player: 스크립트명
     }
     private void OnCollisionEnter(Collision collision) // 다른 오브젝트와 충돌할 때 자동으로 호출되는 Unity 이벤트 메서드
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 현재 장면 재로드
+        // if(collision.gameObject.name == "Player") // 이름
+        // if(collision.gameObject.GetComponent<Wall>() != null) // 컴포넌트
+        if(collision.gameObject.tag == "Wall") // 태그
+        // if(collision.gameObject.CompareTag("Wall")) // 태그
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 현재 장면 재로드
         // SceneManager: 게임 장면을 관리하는 Unity 클래스
         // SceneManager.GetActiveScene(): 현재 활성 장면 검색
         // .name: 현재 활성화된 장면 이름

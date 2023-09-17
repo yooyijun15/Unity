@@ -6,10 +6,12 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] wallPrefab; // 프리팹 불러오기, [] 배열을 사용하여 여러개의 오브젝트 불러오기
     public GameObject[] dropPrefab;
+    public GameObject[] coinPrefab;
     public float interval = 1.5f;
     public float range = 3;
     float term; // 간격
     // Start is called before the first frame update
+
     void Start()
     {
         term = interval;
@@ -28,6 +30,9 @@ public class Spawner : MonoBehaviour
             int dropType = Random.Range(0, dropPrefab.Length);
             if (Random.Range(0, 2) == 0)
                 Instantiate(dropPrefab[dropType]);
+            int coinType = Random.Range(0, coinPrefab.Length);
+            if (Random.Range(0, 2) == 0)
+                Instantiate(coinPrefab[coinType]);
             term -= interval;
         }
     }
